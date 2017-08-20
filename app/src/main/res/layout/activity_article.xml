@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="redditArticle"
+            type="garner.tan.redditclient.model.RedditArticle"/>
+    </data>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                  android:orientation="vertical"
+                  android:layout_width="match_parent"
+                  android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/article_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{redditArticle.post.title}"
+            android:fontFamily="sans-serif"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:background="@color/colorNeutral"
+            />
+        <TextView
+            android:id="@+id/article_body"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{redditArticle.post.body}"
+            android:backgroundTint="@color/colorNeutral"/>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/article_recycler"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintHeight_default="wrap"
+            />
+    </LinearLayout>
+</layout>
