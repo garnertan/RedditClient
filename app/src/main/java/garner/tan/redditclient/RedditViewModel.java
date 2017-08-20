@@ -65,10 +65,8 @@ public class RedditViewModel extends AndroidViewModel {
         return redditPosts.size();
     }
 
+    // load article in background
     public void loadArticle(String id) {
-//        Completable.fromAction(() -> activeArticle = client.getArticle(id))
-//                .subscribeOn(Schedulers.io())
-//                .observeOn(AndroidSchedulers.mainThread()).subscribe();
         Single.fromCallable(() -> client.getArticle(id))
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
